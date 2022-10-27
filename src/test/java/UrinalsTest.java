@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class urinalsTest {
+public class UrinalsTest {
 
 
     @Test
@@ -14,6 +14,6 @@ public class urinalsTest {
         Urinals urinals = new Urinals();
         assertTrue(urinals.isGoodString(s1));
         assertFalse(urinals.isGoodString(s2));
-        System.out.println("");
+        System.out.println("====== Neev Umeshkumar Shah == TEST ONE EXECUTED =======");
     }
 }
