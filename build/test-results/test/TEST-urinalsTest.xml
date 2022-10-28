@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="UrinalsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-28T00:42:40" hostname="DESKTOP-L2IO0BL" time="0.015">
+<testsuite name="UrinalsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-28T03:27:52" hostname="DESKTOP-L2IO0BL" time="0.016">
   <properties/>
-  <testcase name="isGoodStringTest()" classname="UrinalsTest" time="0.015"/>
-  <system-out><![CDATA[====== Neev Umeshkumar Shah == TEST ONE EXECUTED =======
-]]></system-out>
+  <testcase name="ReadFileTest_FileFound()" classname="UrinalsTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,5 +1,8 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -28,4 +31,19 @@ public class UrinalsTest {
         assertEquals(-1, urinals.countUrinals(s2));
         System.out.println("====== Neev Umeshkumar Shah == TEST TWO EXECUTED =======");
     }
+
+    @Test()
+    public void ReadFileTest_FileNotFoundException() {
+        Urinals urinals = new Urinals();
+        assertThrows(FileNotFoundException.class, () -> urinals.readFile("src/test/resources/test.txt"));
+        System.out.println("====== Neev Umeshkumar Shah == TEST THREE EXECUTED =======");
+    }
+
+    @Test()
+    public void ReadFileTest_FileFound() {
+        Urinals urinals = new Urinals();
+        assertDoesNotThrow(() -> urinals.readFile("src/test/resources/test1.txt"));
+        System.out.println("====== Neev Umeshkumar Shah == TEST FOUR EXECUTED =======");
+    }
+
 }

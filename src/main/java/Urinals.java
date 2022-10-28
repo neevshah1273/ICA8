@@ -4,6 +4,10 @@
 * ASU I'd : 1226570932
 * */
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Urinals {
@@ -42,6 +46,24 @@ public class Urinals {
         return -1;
     }
 
+    public static FileReader readFile(String filepath) throws FileNotFoundException {
+        return new FileReader(filepath);
+    }
+
+    public static List<String> parseFile(FileReader fileReader) throws IOException {
+        List<String> stringList = new ArrayList<>();
+        BufferedReader br = new BufferedReader(fileReader);
+
+        try {
+            String line;
+            while (!(line = br.readLine()).equals("EOF")) {
+                stringList.add(line);
+            }
+        } finally {
+            br.close();
+        }
+        return stringList;
+    }
 
     public static void main(String[] args) {
         System.out.println("Hello! How would you like to test");
@@ -50,7 +72,16 @@ public class Urinals {
         Scanner scanner = new Scanner(System.in);
         String inputChoice = scanner.nextLine();
         if(inputChoice.equals("1")){
-
+            System.out.println("Enter your File in src->main->resources & Enter FileName");
+            String filepath = scanner.nextLine();
+            try {
+                FileReader fileReader = readFile("src/main/resources/"+filepath);
+                List<String> inputStrings = parseFile(fileReader);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         else if(inputChoice.equals("2")){
             System.out.println("Enter a String");
