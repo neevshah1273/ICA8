@@ -10,9 +10,11 @@ public class UrinalsTest {
     public void isGoodStringTest(){
         String s1 = "10101001";
         String s2 = "001101110";
+        String s3 = "aab";
         Urinals urinals = new Urinals();
         assertTrue(urinals.isGoodString(s1));
         assertFalse(urinals.isGoodString(s2));
+        assertFalse(urinals.isGoodString(s3));
         System.out.println("====== Neev Umeshkumar Shah == TEST ONE EXECUTED =======");
     }
 

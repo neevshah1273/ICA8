@@ -7,7 +7,12 @@
 public class Urinals {
 
     public boolean isGoodString(String string){
+        if(string.charAt(string.length()-1)>'1' || string.charAt(string.length()-1)<'0')return false;
         for (int i = 0; i < string.length()-1; i++) {
+            if(string.charAt(i)>'1' || string.charAt(i)<'0'){
+                System.out.println(string.charAt(i));
+                return false;
+            }
             if(string.charAt(i)=='1' && string.charAt(i+1)=='1'){
                 return false;
             }
