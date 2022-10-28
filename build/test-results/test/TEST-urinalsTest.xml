@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="urinalsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-27T20:14:09" hostname="DESKTOP-L2IO0BL" time="0.016">
+<testsuite name="UrinalsTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-10-28T00:25:45" hostname="DESKTOP-L2IO0BL" time="0.019">
   <properties/>
-  <testcase name="isGoodStringTest()" classname="urinalsTest" time="0.016"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="isGoodStringTest()" classname="UrinalsTest" time="0.017"/>
+  <testcase name="countUrinalsTest()" classname="UrinalsTest" time="0.002"/>
+  <system-out><![CDATA[====== Neev Umeshkumar Shah == TEST ONE EXECUTED =======
+====== Neev Umeshkumar Shah == TEST TWO EXECUTED =======
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

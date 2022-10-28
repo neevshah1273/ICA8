@@ -15,6 +15,26 @@ public class Urinals {
         return true;
     }
 
+    public int countUrinals(String string){
+        int count = 0;
+        if(isGoodString(string)){
+            for(int i=0;i<string.length();i++){
+                if(string.charAt(i)=='0' && i==string.length()-1 ){
+                    count++;
+                }
+                else if(i<string.length()-1 && string.charAt(i)=='0' && string.charAt(i+1)=='0'){
+                    count++;
+                    i++;
+                }
+                else if(string.charAt(i)=='1'){
+                    i++;
+                }
+            }
+            return count;
+        }
+        return -1;
+    }
+
 
     public static void main(String[] args) {
 
