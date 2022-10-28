@@ -5,12 +5,18 @@
 * */
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.EmptyStackException;
-import java.util.List;
-import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
+
 
 public class Urinals {
+
+    public static Map<String, Integer> fileNameCounter = new HashMap<>();
+
+    private static final String NEW_LINE = System.lineSeparator();
 
     public static boolean isGoodString(String string){
         if(string.charAt(string.length()-1)>'1' || string.charAt(string.length()-1)<'0')return false;
@@ -65,6 +71,23 @@ public class Urinals {
         return stringList;
     }
 
+    public static boolean writeFileIn(String fileName, List<Integer> ansList) throws IOException {
+        fileNameCounter.put(fileName, fileNameCounter.getOrDefault(fileName, -1)+1);
+        Path path = Paths.get("src/main/resources/"+ fileName.substring(0,fileName.length()-4) + fileNameCounter.get(fileName)+".txt");
+        String ansString = "";
+        for(int i=0;i<ansList.size();i++){
+            ansString+=ansList.get(i).toString();
+            ansString+=NEW_LINE;
+        }
+        writeFile(path, ansString);
+        return true;
+    }
+
+    private static void writeFile(Path path, String content)
+            throws IOException {
+        Files.write(path, content.getBytes(StandardCharsets.UTF_8));
+    }
+
     public static void main(String[] args) {
         System.out.println("Hello! How would you like to test");
         System.out.println("1. Input File");
@@ -77,6 +100,17 @@ public class Urinals {
             try {
                 FileReader fileReader = readFile("src/main/resources/"+filepath);
                 List<String> inputStrings = parseFile(fileReader);
+                List<Integer> answerList = new ArrayList<>();
+                for (int i = 0; i < inputStrings.size(); i++) {
+                    answerList.add(countUrinals(inputStrings.get(i)));
+                }
+                boolean success = writeFileIn(filepath, answerList);
+                if (success){
+                    System.out.println("File Created successfully");
+                }
+                else {
+                    System.out.println("Eh, Some Error Occurred");
+                }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {

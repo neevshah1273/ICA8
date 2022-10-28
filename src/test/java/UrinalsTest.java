@@ -3,6 +3,10 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -44,6 +48,15 @@ public class UrinalsTest {
         Urinals urinals = new Urinals();
         assertDoesNotThrow(() -> urinals.readFile("src/test/resources/test1.txt"));
         System.out.println("====== Neev Umeshkumar Shah == TEST FOUR EXECUTED =======");
+    }
+
+    @Test
+    public void createFileTest() throws IOException {
+        Urinals urinals = new Urinals();
+        List<Integer> array = new ArrayList<>();
+        array.add(5);
+        array.add(4);
+        assertTrue(urinals.writeFileIn("newFile.txt", array));
     }
 
 }
