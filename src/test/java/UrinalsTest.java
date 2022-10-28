@@ -46,6 +46,17 @@ public class UrinalsTest {
     }
 
     @Test
+    public void IsEmptyFile() {
+        assertThrows(Exception.class, ()-> Urinals.parseFile(Urinals.readFile("src/test/resources/empty.txt")));
+        System.out.println("====== Neev Umeshkumar Shah == TEST FIVE EXECUTED =======");
+    }
+
+    @Test
+    public void IsDuplicateFileName(){
+        assertTrue(Urinals.isDuplicate("src/main/resources/test1.txt"));
+    }
+
+    @Test
     public void createFileTest() throws IOException {
         List<Integer> array = new ArrayList<>();
         array.add(5);

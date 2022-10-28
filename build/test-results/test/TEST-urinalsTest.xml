@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="UrinalsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-10-28T05:58:41" hostname="DESKTOP-L2IO0BL" time="0.03">
+<testsuite name="UrinalsTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-10-28T06:31:47" hostname="DESKTOP-L2IO0BL" time="0.03">
   <properties/>
-  <testcase name="isGoodStringTest()" classname="UrinalsTest" time="0.019"/>
+  <testcase name="isGoodStringTest()" classname="UrinalsTest" time="0.016"/>
   <testcase name="ReadFileTest_FileFound()" classname="UrinalsTest" time="0.002"/>
-  <testcase name="ReadFileTest_FileNotFoundException()" classname="UrinalsTest" time="0.002"/>
-  <testcase name="countUrinalsTest()" classname="UrinalsTest" time="0.001"/>
-  <testcase name="createFileTest()" classname="UrinalsTest" time="0.003"/>
+  <testcase name="ReadFileTest_FileNotFoundException()" classname="UrinalsTest" time="0.001"/>
+  <testcase name="countUrinalsTest()" classname="UrinalsTest" time="0.002"/>
+  <testcase name="createFileTest()" classname="UrinalsTest" time="0.004"/>
+  <testcase name="IsDuplicateFileName()" classname="UrinalsTest" time="0.001"/>
+  <testcase name="IsEmptyFile()" classname="UrinalsTest" time="0.001"/>
   <system-out><![CDATA[====== Neev Umeshkumar Shah == TEST ONE EXECUTED =======
 ====== Neev Umeshkumar Shah == TEST FOUR EXECUTED =======
 ====== Neev Umeshkumar Shah == TEST THREE EXECUTED =======
 ====== Neev Umeshkumar Shah == TEST TWO EXECUTED =======
+====== Neev Umeshkumar Shah == TEST FIVE EXECUTED =======
+====== Neev Umeshkumar Shah == TEST FIVE EXECUTED =======
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -70,6 +70,9 @@ public class Urinals {
 
     public static boolean writeFileIn(String fileName, List<Integer> ansList) throws IOException {
         fileNameCounter.put(fileName, fileNameCounter.getOrDefault(fileName, -1)+1);
+        while (isDuplicate("src/main/resources/"+ fileName.substring(0,fileName.length()-4) + fileNameCounter.get(fileName)+".txt")){
+            fileNameCounter.put(fileName, fileNameCounter.getOrDefault(fileName, -1)+1);
+        }
         Path path = Paths.get("src/main/resources/"+ fileName.substring(0,fileName.length()-4) + fileNameCounter.get(fileName)+".txt");
         StringBuilder ansString = new StringBuilder();
         for (Integer integer : ansList) {
@@ -83,6 +86,14 @@ public class Urinals {
     private static void writeFile(Path path, String content)
             throws IOException {
         Files.write(path, content.getBytes(StandardCharsets.UTF_8));
+    }
+
+    public static Boolean isDuplicate(String pathname){
+        File f = new File(pathname);
+        if(f.exists() && !f.isDirectory()) {
+            return true;
+        }
+        return false;
     }
 
     public static void main(String[] args) {
