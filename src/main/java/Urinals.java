@@ -1,8 +1,8 @@
-/*
+/**
 * Author : Neev Umeshkumar Shah
 * ASURITE I'd : nshah83
 * ASU I'd : 1226570932
-* */
+**/
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -70,10 +70,10 @@ public class Urinals {
 
     public static boolean writeFileIn(String fileName, List<Integer> ansList) throws IOException {
         fileNameCounter.put(fileName, fileNameCounter.getOrDefault(fileName, -1)+1);
-        while (isDuplicate("src/main/resources/"+ fileName.substring(0,fileName.length()-4) + fileNameCounter.get(fileName)+".txt")){
+        while (isDuplicate("src/main/resources/rule" + fileNameCounter.get(fileName)+".txt")){
             fileNameCounter.put(fileName, fileNameCounter.getOrDefault(fileName, -1)+1);
         }
-        Path path = Paths.get("src/main/resources/"+ fileName.substring(0,fileName.length()-4) + fileNameCounter.get(fileName)+".txt");
+        Path path = Paths.get("src/main/resources/rule" + fileNameCounter.get(fileName)+".txt");
         StringBuilder ansString = new StringBuilder();
         for (Integer integer : ansList) {
             ansString.append(integer.toString());
