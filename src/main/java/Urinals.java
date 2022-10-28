@@ -58,15 +58,12 @@ public class Urinals {
 
     public static List<String> parseFile(FileReader fileReader) throws IOException {
         List<String> stringList = new ArrayList<>();
-        BufferedReader br = new BufferedReader(fileReader);
 
-        try {
+        try (BufferedReader br = new BufferedReader(fileReader)) {
             String line;
             while (!(line = br.readLine()).equals("EOF")) {
                 stringList.add(line);
             }
-        } finally {
-            br.close();
         }
         return stringList;
     }
@@ -74,12 +71,12 @@ public class Urinals {
     public static boolean writeFileIn(String fileName, List<Integer> ansList) throws IOException {
         fileNameCounter.put(fileName, fileNameCounter.getOrDefault(fileName, -1)+1);
         Path path = Paths.get("src/main/resources/"+ fileName.substring(0,fileName.length()-4) + fileNameCounter.get(fileName)+".txt");
-        String ansString = "";
-        for(int i=0;i<ansList.size();i++){
-            ansString+=ansList.get(i).toString();
-            ansString+=NEW_LINE;
+        StringBuilder ansString = new StringBuilder();
+        for (Integer integer : ansList) {
+            ansString.append(integer.toString());
+            ansString.append(NEW_LINE);
         }
-        writeFile(path, ansString);
+        writeFile(path, ansString.toString());
         return true;
     }
 
@@ -101,8 +98,8 @@ public class Urinals {
                 FileReader fileReader = readFile("src/main/resources/"+filepath);
                 List<String> inputStrings = parseFile(fileReader);
                 List<Integer> answerList = new ArrayList<>();
-                for (int i = 0; i < inputStrings.size(); i++) {
-                    answerList.add(countUrinals(inputStrings.get(i)));
+                for (String inputString : inputStrings) {
+                    answerList.add(countUrinals(inputString));
                 }
                 boolean success = writeFileIn(filepath, answerList);
                 if (success){
@@ -111,8 +108,6 @@ public class Urinals {
                 else {
                     System.out.println("Eh, Some Error Occurred");
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -120,8 +115,8 @@ public class Urinals {
         else if(inputChoice.equals("2")){
             System.out.println("Enter a String");
             String string = scanner.nextLine();
-            Integer urinalCount = countUrinals(string);
-            System.out.println(urinalCount.toString());
+            int urinalCount = countUrinals(string);
+            System.out.println(urinalCount);
         }
     }
 }
